@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Buscar Post</h2>
+
+<form method="get">
+    <input type="text" name="titulo" placeholder="Buscar por título">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultado %}
+<ul>
+    {% for post in resultado %}
+        <li>{{ post.titulo }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

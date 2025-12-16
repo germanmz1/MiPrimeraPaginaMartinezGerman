@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Primer Blog</title>
+</head>
+<body>
+
+<h1>Mi Primer Blog en Django</h1>
+
+<nav>
+    <a href="/">Inicio</a> |
+    <a href="/crear/">Crear Post</a> |
+    <a href="/buscar/">Buscar Post</a>
+</nav>
+
+<hr>
+
+{% block contenido %}
+<h2>Posts publicados</h2>
+
+{% if posts %}
+<ul>
+    {% for post in posts %}
+        <li>
+            <strong>{{ post.titulo }}</strong> -
+            {{ post.autor }} ({{ post.categoria }})
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay posts todavía.</p>
+{% endif %}
+{% endblock %}
+
+</body>
+</html>
