@@ -1,36 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Mi Primer Blog</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>Mi Primer Blog en Django</h1>
-
-<nav>
-    <a href="/">Inicio</a> |
-    <a href="/crear/">Crear Post</a> |
-    <a href="/buscar/">Buscar Post</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio' %}">Mi Blog</a>
+        <div>
+            <a class="btn btn-outline-light me-2" href="{% url 'inicio' %}">Inicio</a>
+            <a class="btn btn-outline-light me-2" href="{% url 'crear_post' %}">Crear Post</a>
+            <a class="btn btn-outline-light" href="{% url 'buscar_post' %}">Buscar</a>
+        </div>
+    </div>
 </nav>
 
-<hr>
-
-{% block contenido %}
-<h2>Posts publicados</h2>
-
-{% if posts %}
-<ul>
-    {% for post in posts %}
-        <li>
-            <strong>{{ post.titulo }}</strong> -
-            {{ post.autor }} ({{ post.categoria }})
-        </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No hay posts todavía.</p>
-{% endif %}
-{% endblock %}
+<div class="container mt-4">
+    {% block contenido %}
+    {% endblock %}
+</div>
 
 </body>
 </html>

@@ -5,7 +5,8 @@ from .models import Post
 
 def inicio(request):
     posts = Post.objects.all()
-    return render(request, 'base.html', {'posts': posts})
+    return render(request, 'inicio.html', {'posts': posts})
+
 
 
 def crear_post(request):

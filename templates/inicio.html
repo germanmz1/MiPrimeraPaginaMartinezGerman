@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2 class="mb-4">Posts publicados</h2>
+
+{% if posts %}
+    <div class="list-group">
+        {% for post in posts %}
+            <div class="list-group-item">
+                <h5>{{ post.titulo }}</h5>
+                <p class="mb-1">{{ post.contenido|truncatewords:20 }}</p>
+                <small>
+                    Autor: {{ post.autor }} |
+                    Categoría: {{ post.categoria }}
+                </small>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No hay posts todavía.</p>
+{% endif %}
+{% endblock %}
